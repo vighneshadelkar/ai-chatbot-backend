@@ -24,17 +24,9 @@ Chatbot.post("/", async (request, response) => {
         response.json({
             reply: result.choices[0].message.content,
         });
-
-
     } catch (error) {
-        if (error instanceof OpenAI.APIError) {
-            console.error(error.status);  
-            console.error(error.message); 
-            console.error(error.code);  
-            console.error(error.type); 
-        } else {
-            console.log(error);
-        }
+        console.error('Error occurred:', error.message);
+        response.status(500).json({ error: 'Internal Server Error' });
     }
 });
 
