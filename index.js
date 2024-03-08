@@ -14,17 +14,17 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use('/chatbot',Chatbot);
 
-mongoose.connect(DATABASE_URL, { useNewUrlParser: true });
+// mongoose.connect(DATABASE_URL, { useNewUrlParser: true });
 
-const db=mongoose.connection;
+// const db=mongoose.connection;
 
-db.on("close",(error)=>{
-    console.log(error);
-})
+// db.on("close",(error)=>{
+//     console.log(error);
+// })
 
-db.once('open',()=>{
-    console.log("db working");
-})
+// db.once('open',()=>{
+//     console.log("db working");
+// })
 
 app.get('/', (req, res) => {
     res.send('hello');
